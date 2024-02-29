@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.slick-dots li.slick-active button:before {
+    color: white !important;
+    margin-top: 20px;
+
+
+}
+
+.slick-dots li button:before {
+    color: white !important;
+    margin-top: 10px;
+
+}
+
+body {
+    background-image: linear-gradient(#ADA996, #F2F2F2, #DBDBDB, #EAEAEA);
+    color: black;
+}
