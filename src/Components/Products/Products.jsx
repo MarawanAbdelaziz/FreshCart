@@ -45,7 +45,9 @@ const Products = () => {
         <title>Products</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-
+      <h2 className="w-full text-center text-4xl font-bold mt-10">
+        All Products
+      </h2>
       {isLoading ? (
         <Loading />
       ) : (
