@@ -52,7 +52,7 @@ const Products = () => {
         <Loading />
       ) : (
         <section className="w-[75%] mt-16 mb-16 mx-auto ">
-          <div className="grid grid-cols-5 gap-x-4 gap-y-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-7">
             {product.map((product) => (
               <div
                 key={product.id}

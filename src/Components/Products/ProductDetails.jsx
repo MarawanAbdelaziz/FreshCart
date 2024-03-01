@@ -46,7 +46,7 @@ const ProductDetails = () => {
     slidesToScroll: 1,
     arrows: false,
     className:
-      "w-[400px] h-[99%] shadow-transparent hover:shadow-[#434343] duration-300 rounded-lg shadow-lg",
+      "sm:w-[400px] h-[99%] shadow-transparent hover:shadow-[#434343] duration-300 rounded-lg shadow-lg",
   };
 
   if (isFetching) {
@@ -85,8 +85,8 @@ const ProductDetails = () => {
             <title>{product.title}</title>
             <link rel="canonical" href="http://mysite.com/example" />
           </Helmet>
-          <div className="grid grid-cols-3">
-            <div className="w-[80%] ">
+          <div className="grid grid-cols-1 2xl:grid-cols-3">
+            <div className="w-[100%] 2xl:w-[80%] ">
               <Slider {...settings}>
                 {product.images.map((image) => (
                   <div key={image} className="">
@@ -95,12 +95,13 @@ const ProductDetails = () => {
                 ))}
               </Slider>
             </div>
+
             <div className="col-span-2 mb-16 flex flex-col justify-center">
               <div className="mb-16 me-3">
                 {wishlist?.filter((wishlistid) => {
                   return wishlistid._id == product._id;
                 }).length > 0 ? (
-                  <button className="flex ms-auto">
+                  <button className="flex ms-auto mt-5 sm:mt-0">
                     <FaHeartCircleMinus
                       onClick={() => {
                         if (localStorage.getItem("token")) {
@@ -110,11 +111,11 @@ const ProductDetails = () => {
                           navigate("/login");
                         }
                       }}
-                      className="text-xl text-redColor"
+                      className="text-xl text-redColor "
                     />
                   </button>
                 ) : (
-                  <button className="flex ms-auto">
+                  <button className="flex ms-auto mt-5 sm:mt-0">
                     <FaHeartCirclePlus
                       onClick={() => {
                         if (localStorage.getItem("token")) {
@@ -124,7 +125,7 @@ const ProductDetails = () => {
                           navigate("/login");
                         }
                       }}
-                      className="text-xl"
+                      className="text-3xl 2xl:text-xl "
                     />
                   </button>
                 )}
@@ -136,7 +137,7 @@ const ProductDetails = () => {
               <div className="flex   justify-between">
                 <p className="font-semibold">Price: {product.price} EGP </p>
                 <p className="flex items-center me-3">
-                  <IoStarSharp className="me-1 text-yellow-300" />
+                  <IoStarSharp className="me-1 text-3xl 2xl:text-xl text-yellow-300" />
                   {product.ratingsAverage}
                 </p>
               </div>
@@ -144,7 +145,7 @@ const ProductDetails = () => {
               {isLoadingAddProduct ? (
                 <button
                   disabled="true"
-                  className="bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] border border-black pt-1 pb-1 w-96 text-center rounded-lg mx-auto mt-20"
+                  className="bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] border border-black pt-1 pb-1 w-56 sm:w-96 text-center rounded-lg mx-auto mt-20"
                 >
                   <div className="flex justify-center">
                     <ThreeDots
@@ -172,7 +173,7 @@ const ProductDetails = () => {
                       navigate("/login");
                     }
                   }}
-                  className="bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] border border-black pt-1 pb-1 w-96 text-center rounded-lg mx-auto mt-20"
+                  className="bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] border border-black pt-1 pb-1 w-56 sm:w-96 text-center rounded-lg mx-auto mt-20"
                 >
                   Add
                 </button>
