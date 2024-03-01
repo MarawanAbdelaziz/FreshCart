@@ -37,13 +37,12 @@ const NavbarPage = () => {
       <Navbar className="bg-[#d3d3d3]">
         <div className="w-screen flex items-center justify-between mx-auto p-4">
           <div className="flex justify-between items-center">
-            <a
-              href=""
+            <Link
+              to={"/"}
               className="flex items-center space-x-3 rtl:space-x-reverse pe-8"
             >
               <img src={Logo} alt="FreshCart Logo" />
-            </a>
-            <Navbar.Toggle />
+            </Link>
             <Navbar.Collapse className=" ">
               <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-4 md:text-sm md:font-medium">
                 <Link
@@ -110,15 +109,16 @@ const NavbarPage = () => {
             </Navbar.Collapse>
           </div>
 
-          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center items-center">
-            <Footer.Icon className="text-black" href="#" icon={BsFacebook} />
-            <Footer.Icon className="text-black" href="#" icon={BsTwitter} />
-            <Footer.Icon className="text-black" href="#" icon={BsInstagram} />
-            <Footer.Icon className="text-black" href="#" icon={BsTiktok} />
-            <Footer.Icon className="text-black" href="#" icon={BsLinkedin} />
-            <Footer.Icon className="text-black" href="#" icon={BsYoutube} />
-
-            <Link to={"/cart"} className="text-black relative">
+          <div className=" flex space-x-6  justify-center items-center">
+            <div className="hidden lg:flex space-x-6 items-center">
+              <Footer.Icon className="text-black" href="#" icon={BsFacebook} />
+              <Footer.Icon className="text-black" href="#" icon={BsTwitter} />
+              <Footer.Icon className="text-black" href="#" icon={BsInstagram} />
+              <Footer.Icon className="text-black" href="#" icon={BsTiktok} />
+              <Footer.Icon className="text-black" href="#" icon={BsLinkedin} />
+              <Footer.Icon className="text-black" href="#" icon={BsYoutube} />
+            </div>
+            <Link to={"/cart"} className="text-black relative hidden md:block">
               <Footer.Icon icon={BsCart3} />
               <div className="absolute -top-3 -right-3 p-3 rounded-full bg-greenColor">
                 <p className="absolute inset-0 mt-[2px] text-center text-white text-[12px]">
@@ -144,6 +144,7 @@ const NavbarPage = () => {
                 Login
               </button>
             )}
+            <Navbar.Toggle />
           </div>
         </div>
       </Navbar>
