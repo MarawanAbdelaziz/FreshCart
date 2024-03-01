@@ -116,7 +116,7 @@ const Products = () => {
                 {isLoadingAddProduct ? (
                   <button
                     disabled="false"
-                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 ps-12 pe-12 rounded-lg mx-auto flex mb-6 mt-2 translate-y-24 group-hover:translate-y-0 duration-500 "
+                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 ps-12 pe-12 rounded-lg mx-auto flex mb-6 mt-2 md:translate-y-24 md:group-hover:translate-y-0 duration-500 "
                   >
                     <ThreeDots
                       visible={true}
@@ -141,7 +141,7 @@ const Products = () => {
                         navigate("/login");
                       }
                     }}
-                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 ps-12 pe-12 rounded-lg mx-auto flex mb-6 mt-2 translate-y-24 group-hover:translate-y-0 duration-500 "
+                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 ps-12 pe-12 rounded-lg mx-auto flex mb-6 mt-2 md:translate-y-24 md:group-hover:translate-y-0 duration-500 "
                   >
                     Add
                   </button>
