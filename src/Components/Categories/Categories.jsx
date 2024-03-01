@@ -22,9 +22,9 @@ const Categories = () => {
         All Categories
       </h2>
       {isLoading ? (
-       <Loading/>
+        <Loading />
       ) : (
-        <div className="grid grid-cols-3 gap-6 w-[70%] mx-auto mt-16 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-[70%] mx-auto mt-16 mb-16">
           {categories.map((categorie) => (
             <Link
               key={categorie._id}

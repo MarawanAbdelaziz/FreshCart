@@ -43,10 +43,10 @@ const CategoriesDetails = () => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       {isLoading ? (
-        <Loading/>
+        <Loading />
       ) : (
-        <div className=" h-screen">
-          <div className="grid grid-cols-3 gap-y-20 gap-x-8 w-[70%] mx-auto mt-16 mb-16">
+        <div className=" md:h-screen">
+          <div className="grid  gap-y-20 gap-x-8 w-[70%] mx-auto mt-16 mb-16">
             {categorie.length == 0 ? (
               <div className="col-span-3 mt-28 rounded-lg text-center border border-transparent shadow-transparent hover:border-redColor hover:shadow-redColor shadow-sm-light duration-500 ">
                 <h3 className="m-5 p-5 text-6xl font-bold text-center bg-gradient-to-r from-[#fffbd5] to-[#b20a2c] bg-clip-text text-transparent">
