@@ -43,64 +43,98 @@ const NavbarPage = () => {
             >
               <img src={Logo} alt="FreshCart Logo" />
             </Link>
-            <Navbar.Collapse className=" ">
-              <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-4 md:text-sm md:font-medium">
+            <Navbar.Collapse className=" w-0 md:w-full ">
+              <ul className="mt-4  absolute w-full md:static flex top-[75px] left-0 flex-col md:mt-0 md:flex-row md:space-x-4 md:text-sm md:font-medium bg-[#d3d3d3]">
                 <Link
                   className={`${
                     location.pathname == "/"
                       ? "font-bold text-[15px] text-gray-500 border-b-2 border-gray-500 "
                       : "text-gray-500"
-                  } `}
+                  } 
+                  md:mt-0
+                  mt-2
+                  
+                  md:ms-0
+                  sm:ms-5
+                  ms-3
+
+                  `}
                   to={"/"}
                 >
                   Home
                 </Link>
+
                 <Link
                   className={`${
                     location.pathname == "/products"
                       ? "font-bold text-[15px] text-gray-500 border-b-2 border-gray-500"
                       : "text-gray-500"
-                  } `}
+                  }
+                  
+                  md:ms-0
+                  sm:ms-5
+                  ms-3`}
                   to={"/products"}
                 >
                   Products
                 </Link>
+
                 <Link
                   className={`${
                     location.pathname == "/categories"
                       ? "font-bold text-[15px] text-gray-500 border-b-2 border-gray-500"
                       : "text-gray-500"
-                  } `}
+                  } md:ms-0
+                  sm:ms-5
+                  ms-3`}
                   to={"/categories"}
                 >
                   Categories
                 </Link>
+
                 <Link
                   className={`${
                     location.pathname == "/brands"
                       ? "font-bold text-[15px] text-gray-500 border-b-2 border-gray-500"
                       : "text-gray-500"
-                  } `}
+                  } md:ms-0
+                  sm:ms-5
+                  ms-3 `}
                   to={"/brands"}
                 >
                   Brands
                 </Link>
+
                 <Link
                   className={`${
                     location.pathname == "/cart"
                       ? "font-bold text-[15px] text-gray-500 border-b-2 border-gray-500"
                       : "text-gray-500"
-                  } `}
+                  }
+                  md:ms-0
+                  sm:ms-5
+                  ms-3
+                  `}
                   to={"/cart"}
                 >
                   Cart
                 </Link>
+
                 <Link
                   className={`${
                     location.pathname == "/wishlist"
                       ? "font-bold text-[15px] text-gray-500 border-b-2 border-gray-500"
                       : "text-gray-500"
-                  } `}
+                  }
+                  
+                  md:ms-0
+                  sm:ms-5
+                  ms-3
+                  
+                  md:mb-0
+                  mb-3
+                  
+                  `}
                   to={"/wishlist"}
                 >
                   Wishlist
