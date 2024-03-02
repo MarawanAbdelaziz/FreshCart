@@ -8,6 +8,7 @@ import { ProductContext } from "../../Context/productContext";
 import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Wishlist = () => {
   let navigate = useNavigate();
@@ -16,6 +17,7 @@ const Wishlist = () => {
     queryKey: ["getWishlist"],
     queryFn: () => axiosConfig.get(`/api/v1/wishlist`),
     retry: 0,
+    refetchOnWindowFocus: false,
   });
 
   let {
@@ -47,6 +49,10 @@ const Wishlist = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Wishlist</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       {isFetching ? (
         <Loading />
       ) : (
@@ -59,13 +65,17 @@ const Wishlist = () => {
             <h2 className="text-xl font-bold">My wish List </h2>
 
             {wishlists?.map((wishlist) => (
-              <div key={wishlist._id} className="mt-16 flex items-center">
+              <div
+                key={wishlist._id}
+                className="mt-16 grid grid-cols-1 md:flex md:items-center"
+              >
                 <img
-                  className="w-[15%] rounded-md"
+                  className=" mx-auto md:mx-0 w-[90%] md:w-[25%] lg:w-[20%] xl:w-[15%] rounded-md"
                   src={wishlist.imageCover}
                   alt={wishlist.title}
                 />
-                <div className="ms-10 me-auto">
+
+                <div className="ms-10 mt-5 md:mt-0 me-auto">
                   <h4 className="text-[20px] font-medium">{wishlist.title}</h4>
                   <h4 className="text-[16px] font-medium">
                     {wishlist.price} EGP
@@ -100,7 +110,7 @@ const Wishlist = () => {
                 {isLoadingAddProduct ? (
                   <button
                     disabled="false"
-                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 ps-12 pe-12 rounded-lg me-10 "
+                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 md:ps-12 md:pe-12 rounded-lg me-10 "
                   >
                     <ThreeDots
                       visible={true}
@@ -125,7 +135,7 @@ const Wishlist = () => {
                         navigate("/login");
                       }
                     }}
-                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 ps-12 pe-12 rounded-lg me-10 "
+                    className="font-normal bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] shadow-lg shadow-[#7b7a76] pt-1 pb-1 mx-auto md:mx-0 ps-12 pe-12 rounded-lg md:me-10 mt-5 md:mt-0"
                   >
                     Add
                   </button>

@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import axiosConfig from "../AxiosConfig/axiosConfig";
-import {
-  ProgressBar,
-  Puff,
-  ThreeDots,
-} from "react-loader-spinner";
+import { ProgressBar, Puff, ThreeDots } from "react-loader-spinner";
 import { IoBagRemove } from "react-icons/io5";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import Loading from "../Loading/Loading";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
   const [removeProductLoading, setRemoveProductLoading] = useState(null);
@@ -104,6 +101,10 @@ const Cart = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Cart</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       {isLoading ? (
         <Loading />
       ) : (
@@ -129,16 +130,16 @@ const Cart = () => {
                 <>
                   {products.map((product) => (
                     <div key={product._id}>
-                      <div className="mt-16 flex items-center">
+                      <div className="mt-16 grid grid-cols-1 md:flex md:items-center">
                         <img
-                          className="w-[15%] rounded-md"
+                          className="mx-auto md:mx-0 w-[90%] md:w-[25%] lg:w-[20%] xl:w-[15%] rounded-md"
                           src={product.product.imageCover}
                           alt={product.product.title}
                         />
 
-                        <div className="ms-10 me-auto">
+                        <div className="ms-3 md:ms-10 mt-5 md:mt-0 me-auto">
                           <h4 className="text-[20px] font-medium">
-                            {product.product.title}
+                            {product.product.title.split(" ", 2).join(" ")}
                           </h4>
                           <h4 className="text-[16px] font-medium">
                             {product.price} EGP
@@ -168,9 +169,9 @@ const Cart = () => {
                           )}
                         </div>
 
-                        <div className="flex items-center">
+                        <div className="flex mt-5 md:mt-0 mx-auto md:mx-0 items-center">
                           {changeCountLoading ? (
-                            <div className="me-3">
+                            <div className="md:me-3 me-5">
                               <Puff
                                 visible={true}
                                 height="25"
@@ -189,7 +190,7 @@ const Cart = () => {
                                   product.count + 1
                                 )
                               }
-                              className="me-3 text-2xl"
+                              className="md:me-3 me-5 md:text-2xl text-3xl"
                             >
                               <CiCirclePlus />
                             </button>
@@ -198,7 +199,7 @@ const Cart = () => {
                           <h5 className="text-xl">{product.count}</h5>
 
                           {changeCountLoading ? (
-                            <div className="ms-3">
+                            <div className="md:ms-3 ms-5">
                               <Puff
                                 visible={true}
                                 height="25"
@@ -217,7 +218,7 @@ const Cart = () => {
                                   product.count - 1
                                 )
                               }
-                              className="ms-3 text-2xl"
+                              className="md:ms-3 ms-5 md:text-2xl text-3xl"
                             >
                               <CiCircleMinus />
                             </button>
@@ -230,18 +231,18 @@ const Cart = () => {
                   <div className="w-[90%] mx-auto h-1 bg-white mt-20 mb-20"></div>
 
                   <div className="w-[90%] mx-auto">
-                    <div className="flex justify-between items-center">
+                    <div className="md:flex md:justify-between md:items-center">
                       <div>
-                        <h4 className="font-semibold text-2xl">
+                        <h4 className="text-center md:text-left font-semibold text-2xl">
                           total price: {data1?.data.data.totalCartPrice}
                         </h4>
-                        <h4 className="font-semibold text-xl mt-3">
+                        <h4 className="text-center md:text-left font-semibold text-xl mt-3">
                           Cart items: {data1?.data.numOfCartItems}
                         </h4>
                       </div>
 
                       {deleteCartLoading ? (
-                        <button disabled="true">
+                        <button disabled="true" className="mt-5 md:mt-0">
                           <ProgressBar
                             visible={true}
                             height="80"
@@ -257,7 +258,7 @@ const Cart = () => {
                       ) : (
                         <button
                           onClick={deleteCart}
-                          className=" border-2 border-redColor text-redColor w-40 h-[50px] text-center rounded-lg "
+                          className=" mx-auto md:mx-0 flex items-center justify-center md:inline mt-5 md:mt-0 border-2 border-redColor text-redColor w-40 h-[50px] text-center rounded-lg "
                         >
                           Delete cart
                         </button>
@@ -265,8 +266,9 @@ const Cart = () => {
                     </div>
                   </div>
 
-                  <div className="w-[30%] mx-auto h-1 bg-white mt-20 mb-10"></div>
-                  <div className="w-[30%] mx-auto text-center mb-5">
+                  <div className="w-[90%] md:w-[30%] mx-auto h-1 bg-white mt-20 mb-10"></div>
+
+                  <div className="mx-auto text-center mb-5">
                     {loadingPaymnet ? (
                       <div className="text-center ms-[90px]">
                         <ProgressBar
@@ -284,7 +286,7 @@ const Cart = () => {
                     ) : (
                       <button
                         onClick={() => checkoutSession(paymnetId)}
-                        className="bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] border border-black pt-1 pb-1 w-56 text-center rounded-lg mx-auto"
+                        className="bg-gradient-to-r from-[#F2F2F2] via-[#dbdada] to-[#EAEAEA] border border-black pt-1 pb-1 w-36 md:w-56 text-center rounded-lg mx-auto"
                       >
                         Check out
                       </button>

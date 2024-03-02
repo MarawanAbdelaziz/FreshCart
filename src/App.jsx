@@ -51,7 +51,7 @@ function App() {
           element: (
             <Suspense fallback={<Loading />}>
               <ProtectedRoute>
-                <ProductDetails />{" "}
+                <ProductDetails />
               </ProtectedRoute>
             </Suspense>
           ),
