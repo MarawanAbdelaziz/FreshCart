@@ -56,7 +56,7 @@ const Wishlist = () => {
       {isFetching ? (
         <Loading />
       ) : (
-        <div className={`${wishlists.length == 0 ? "h-screen" : ""} mb-20`}>
+        <div className={`${wishlists?.length == 0 ? "h-screen" : ""} mb-20`}>
           <div
             className={`${
               wishlists?.length == 0 ? "border-b border-black" : ""
