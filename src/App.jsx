@@ -1,5 +1,5 @@
 import { Suspense, lazy, useContext, useEffect } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import "./App.css";
 import { UserContext } from "./Context/UserContext";
 import Layout from "./Components/Layout/Layout";
@@ -23,9 +23,8 @@ const ProductDetails = lazy(() =>
 );
 const Register = lazy(() => import("./Components/Auth/Register"));
 
-
 function App() {
-  let routers = createBrowserRouter([
+  let routers = createHashRouter([
     {
       path: "",
       element: <Layout />,
