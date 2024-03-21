@@ -51,7 +51,7 @@ const Home = () => {
         <Loading />
       ) : (
         <div>
-          <div className="mb-10 mt-10 w-[75%] mx-auto grid grid-cols-4">
+          <div className="mb-10 mt-10 w-[75%] mx-auto hidden md:grid grid-cols-4">
             <div className="col-span-3 ">
               <Slider {...settings1}>
                 {images.map((sliderImage) => (
@@ -70,7 +70,8 @@ const Home = () => {
               <img className="w-full h-[225px]" src={groceryBanner2} alt="" />
             </div>
           </div>
-          <div className="w-[75%] mx-auto custom-slider">
+
+          <div className="w-[75%] mx-auto hidden md:block custom-slider">
             <Slider {...settings}>
               {categories.map((categorie) => (
                 <div key={categorie._id} className="h-[250px]">
@@ -83,6 +84,7 @@ const Home = () => {
               ))}
             </Slider>
           </div>
+
           <div>
             <Products />
           </div>

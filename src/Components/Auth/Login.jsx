@@ -68,6 +68,7 @@ const Login = () => {
                 autoComplete="on"
                 className=" border border-gray-400 rounded-md bg-transparent focus:outline-none shadow-none focus:border-gray-300 w-full"
               />
+              
               {formik.errors.email && formik.touched.email ? (
                 <p className="mt-2 p-2 bg-red-700 bg-opacity-80 rounded-md text-white">
                   {formik.errors.email}
@@ -75,6 +76,7 @@ const Login = () => {
               ) : (
                 ""
               )}
+              
             </div>
             <div className="Password">
               <label className="block mb-2 mt-4" htmlFor="password">

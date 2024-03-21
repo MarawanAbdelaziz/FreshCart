@@ -270,7 +270,7 @@ const Cart = () => {
 
                   <div className="mx-auto text-center mb-5">
                     {loadingPaymnet ? (
-                      <div className="text-center ms-[90px]">
+                      <div className="text-center  flex justify-center">
                         <ProgressBar
                           visible={true}
                           height="80"
